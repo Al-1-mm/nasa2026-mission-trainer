@@ -301,35 +301,160 @@
     </section>
 
     <section class="play-section section-pad" id="play" aria-labelledby="play-title">
-      <div class="page-width">
-        <div class="play-heading">
-          <div>
-            <div class="section-kicker"><span>09</span><span class="kicker-rule"></span><span>PLAY THE MISSION</span></div>
-            <h2 id="play-title">Your mission<br><em>starts here.</em></h2>
+      <div class="play-center">
+        <div class="page-width play-hero">
+          <div class="play-hero-art" aria-hidden="true">
+            <img src="assets/images/mission-center-panorama.svg" alt="" fetchpriority="high" decoding="async">
           </div>
-          <div class="build-status"><span class="status-pulse" aria-hidden="true"></span><span>WEBGL BUILD IN PREPARATION</span></div>
-        </div>
-        <p class="play-intro">The launch console is reserved for the Unity WebGL build. Until that build is published, this area displays an honest placeholder rather than a playable game.</p>
-        <div class="game-shell">
-          <div class="game-chrome">
-            <div class="chrome-brand"><span class="chrome-mark" aria-hidden="true"></span><span>MISSION TRAINER <i>/</i> LAUNCH CONSOLE</span></div>
-            <span class="chrome-state"><span></span> BUILD PENDING</span>
-          </div>
-          <div class="game-frame">
-            <iframe id="mission-frame" src="play/index.html" title="Mission Trainer game status" allow="fullscreen; autoplay" loading="lazy"></iframe>
-            <div class="frame-overlay" aria-hidden="true">
-              <span class="frame-corner frame-corner-tl"></span>
-              <span class="frame-corner frame-corner-tr"></span>
-              <span class="frame-corner frame-corner-bl"></span>
-              <span class="frame-corner frame-corner-br"></span>
+          <div class="play-hero-shade" aria-hidden="true"></div>
+          <div class="play-hero-content">
+            <div class="section-kicker"><span>09</span><span class="kicker-rule"></span><span>MISSION GAME CENTER</span></div>
+            <div class="play-identity">
+              <img src="assets/images/mission-trainer-emblem.svg" alt="" width="62" height="62" decoding="async">
+              <span>MISSION TRAINER <i>/</i> MARS SURVIVAL SIMULATION</span>
+            </div>
+            <h2 id="play-title">Play the<br><em>mission.</em></h2>
+            <p class="play-intro">Take command of a four-person crew at Gale Crater. Balance a limited power budget, respond to changing sol conditions and work toward the scenario's science goal.</p>
+            <div class="play-hero-actions">
+              <a class="play-launch-link" href="#mission-console">Go to launch console <span aria-hidden="true">↓</span></a>
+              <span class="play-device-note">DESKTOP BUILD COMPATIBILITY NOT YET VERIFIED</span>
             </div>
           </div>
-          <div class="game-toolbar">
-            <p><span class="toolbar-indicator"></span>The WebGL game is not available yet. This console will host the build when it is ready.</p>
-            <button class="fullscreen-button" id="fullscreen-button" type="button" disabled hidden>Enter fullscreen <span aria-hidden="true">⛶</span></button>
+          <div class="play-hero-status" role="status">
+            <span class="status-pulse" aria-hidden="true"></span>
+            <span><b>BUILD STATUS</b> Unity WebGL build in preparation</span>
+          </div>
+          <div class="play-hero-coordinate" aria-hidden="true">MARS <i>/</i> GALE CRATER <i>/</i> SCENARIO 01</div>
+        </div>
+
+        <div class="play-quick-facts page-width" aria-label="Mars scenario summary">
+          <div><span>MISSION LENGTH</span><strong>14 <small>sols</small></strong></div>
+          <div><span>CREW</span><strong>04 <small>astronauts</small></strong></div>
+          <div><span>POWER BUDGET</span><strong>10 <small>units / sol</small></strong></div>
+          <p>Scenario parameters <i>/</i> not live mission data</p>
+        </div>
+
+        <div class="page-width play-console-wrap" id="mission-console">
+          <div class="play-console-heading">
+            <div>
+              <p class="play-micro-label">MISSION INTERFACE <span>/</span> UNITY WEBGL</p>
+              <h3>Launch console</h3>
+            </div>
+            <span class="console-build-tag"><i></i> BUILD PENDING</span>
+          </div>
+          <div class="game-shell">
+            <div class="game-chrome">
+              <div class="chrome-brand"><span class="chrome-mark" aria-hidden="true"></span><span>MISSION TRAINER <i>/</i> LAUNCH CONSOLE</span></div>
+              <span class="chrome-state"><span></span> WEBGL NOT AVAILABLE</span>
+            </div>
+            <div class="game-frame">
+              <iframe id="mission-frame" src="play/index.html" title="Mission Trainer game status" allow="fullscreen; autoplay" loading="lazy"></iframe>
+              <div class="frame-overlay" aria-hidden="true">
+                <span class="frame-corner frame-corner-tl"></span>
+                <span class="frame-corner frame-corner-tr"></span>
+                <span class="frame-corner frame-corner-bl"></span>
+                <span class="frame-corner frame-corner-br"></span>
+              </div>
+            </div>
+            <div class="game-toolbar">
+              <p><span class="toolbar-indicator"></span>The game build is not available yet. The embedded page is a status placeholder, not a playable simulation.</p>
+              <button class="fullscreen-button" id="fullscreen-button" type="button" disabled hidden>Enter fullscreen <span aria-hidden="true">⛶</span></button>
+            </div>
+          </div>
+          <p class="mobile-note">The WebGL build has not been verified on mobile devices. The game will appear here when the build is published.</p>
+        </div>
+
+        <div class="page-width play-briefing">
+          <div class="play-subsection-heading">
+            <p class="play-micro-label">MISSION FILE <span>/</span> MARS SCENARIO</p>
+            <h3>Briefing from<br><em>Gale Crater.</em></h3>
+            <p>A focused survival-and-science scenario. These are game objectives and simplified resource rules, not real mission operating specifications.</p>
+          </div>
+          <div class="play-dossier">
+            <div class="dossier-location">
+              <span class="dossier-index">MISSION LOCATION</span>
+              <strong>Gale Crater</strong>
+              <span>Mars surface scenario</span>
+              <div class="dossier-rule"></div>
+              <span class="dossier-index">CREW <b>04</b> <i>/</i> DURATION <b>14 SOLS</b></span>
+            </div>
+            <div class="dossier-objectives">
+              <span class="dossier-index">MISSION OBJECTIVE <i>/</i> COMPLETE THE FINAL SOL</span>
+              <p>Keep air and food above zero, keep cumulative game dose below the scenario limit, and reach the science target by sol 14.</p>
+              <div class="objective-targets">
+                <div><span>01</span><b>Air &amp; food</b><small>Stay above 0</small></div>
+                <div><span>02</span><b>Crew dose</b><small>Below 100 game points</small></div>
+                <div><span>03</span><b>Science</b><small>Reach 24 points</small></div>
+              </div>
+              <p class="dossier-caveat">The scenario ends early if air or food reaches zero, or the dose limit is reached. At sol 14, the science target determines the outcome.</p>
+            </div>
           </div>
         </div>
-        <p class="mobile-note">The game build is in preparation. Mobile play has not been verified.</p>
+
+        <div class="play-how">
+          <div class="page-width">
+            <div class="play-subsection-heading play-how-heading">
+              <p class="play-micro-label">THE MISSION LOOP <span>/</span> FOUR STAGES</p>
+              <h3>One sol.<br><em>Four decisions.</em></h3>
+              <p>Follow the documented game loop from the morning briefing to the sol debrief.</p>
+            </div>
+            <ol class="play-timeline">
+              <li>
+                <span class="timeline-number">01</span>
+                <span class="timeline-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 24h22M8 20a8 8 0 0 1 16 0M16 4v4M5.5 9.5l3 3m18-3-3 3M5 16h4m14 0h4M16 12v5l4 2"/></svg></span>
+                <h4>Morning Briefing</h4>
+                <p>Review the sol conditions, event notes and Commander message before choosing an allocation.</p>
+              </li>
+              <li>
+                <span class="timeline-number">02</span>
+                <span class="timeline-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 7h20M6 13h20M6 19h13M6 25h9M22 17v10m-4-4 4 4 4-4"/></svg></span>
+                <h4>Share the Power</h4>
+                <p>Allocate available power to life support, greenhouse, radiation shielding and science. The Weather Station is optional.</p>
+              </li>
+              <li>
+                <span class="timeline-number">03</span>
+                <span class="timeline-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 4v5m0 14v5M4 16h5m14 0h5M7.5 7.5l3.6 3.6m9.8 9.8 3.6 3.6m0-17-3.6 3.6m-9.8 9.8-3.6 3.6"/><circle cx="16" cy="16" r="6"/></svg></span>
+                <h4>Watch the Sol</h4>
+                <p>Resolve the turn and see how your choices and active scenario events affect the crew's resources.</p>
+              </li>
+              <li>
+                <span class="timeline-number">04</span>
+                <span class="timeline-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 25V7m0 18h23M9 21l5-6 4 3 7-9"/><path d="M21 9h4v4"/></svg></span>
+                <h4>Learn Why</h4>
+                <p>Review the result and guidance in the debrief, then continue if the mission is still active.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="page-width play-systems">
+          <div class="play-subsection-heading">
+            <p class="play-micro-label">POWER ALLOCATION <span>/</span> SIMPLIFIED GAME RULES</p>
+            <h3>Four systems.<br><em>One shared budget.</em></h3>
+            <p>Power choices affect the scenario's survival resources and science score. The model is simplified for gameplay.</p>
+          </div>
+          <div class="systems-explainer">
+            <div class="systems-visual">
+              <img src="assets/images/mission-survival-systems.svg" alt="Diagram connecting the shared power budget to life support, greenhouse, radiation shielding, and science." loading="lazy" decoding="async">
+              <span>SCENARIO POWER FLOW <i>/</i> NOT ENGINEERING SPECIFICATION</span>
+            </div>
+            <div class="systems-notes">
+              <article><span>01</span><div><h4>Life Support</h4><p>Power allocation affects the air-and-water resource. Baseline upkeep: 3 units per sol.</p></div></article>
+              <article><span>02</span><div><h4>Greenhouse</h4><p>Allocation affects food. Baseline upkeep: 2 power units per sol.</p></div></article>
+              <article><span>03</span><div><h4>Radiation Shield</h4><p>Shield allocation reduces dose added in the game, capped at 75% reduction.</p></div></article>
+              <article><span>04</span><div><h4>Science</h4><p>Each power unit assigned earns one scenario science point toward the 24-point goal.</p></div></article>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-width play-objective-band">
+          <div class="objective-band-mark" aria-hidden="true"><img src="assets/images/mission-trainer-emblem.svg" alt="" width="52" height="52" loading="lazy" decoding="async"></div>
+          <div>
+            <p class="play-micro-label">MISSION SUCCESS CONDITIONS <span>/</span> SOL 14</p>
+            <h3>Survive the scenario.<br><em>Reach 24 science points.</em></h3>
+          </div>
+          <p>Keep air and food above zero and cumulative dose below 100 game points through the final sol. The dose value is a game abstraction, not a real-world measurement.</p>
+        </div>
       </div>
     </section>
 

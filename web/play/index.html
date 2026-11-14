@@ -3,17 +3,399 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mission Trainer — build coming soon</title>
-  <!-- Placeholder. Arystan's Unity WebGL build replaces this whole folder. -->
+  <meta name="theme-color" content="#090d14">
+  <meta name="description" content="Mission Trainer's Mars mission game is in preparation. Visit the mission overview for project details.">
+  <title>Mission Trainer — Game build in preparation</title>
   <style>
-    html, body { margin: 0; height: 100%; background: #0d0b14; color: #f3ede6;
-      font: 18px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-    .c { height: 100%; display: grid; place-items: center; text-align: center; padding: 16px; }
-    .p { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 18px;
-      background: radial-gradient(circle at 35% 35%, #ff9a5c, #b4471f 60%, #5a1f0c); }
+    :root {
+      color-scheme: dark;
+      --space: #090d14;
+      --panel: #101822;
+      --text: #f0f3f6;
+      --muted: #bac3ce;
+      --dim: #8793a1;
+      --orange: #f2764d;
+      --peach: #ffb38b;
+      --line: rgba(192, 207, 224, 0.2);
+      font-family: "Segoe UI Variable Text", "Segoe UI", Inter, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-width: 0; min-height: 100%; margin: 0; }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 70% 48%, rgba(116, 56, 43, 0.19), transparent 42%),
+        var(--space);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    a:focus-visible {
+      outline: 2px solid #ffd166;
+      outline-offset: 5px;
+    }
+
+    .page {
+      position: relative;
+      display: grid;
+      min-height: 100vh;
+      min-height: 100svh;
+      align-items: center;
+      isolation: isolate;
+      overflow: hidden;
+      padding: clamp(24px, 6vw, 82px);
+    }
+
+    .page::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(9, 13, 20, 0.99) 0%, rgba(9, 13, 20, 0.89) 42%, rgba(9, 13, 20, 0.36) 100%),
+        linear-gradient(0deg, var(--space), transparent 34%, rgba(9, 13, 20, 0.28));
+      content: "";
+      pointer-events: none;
+    }
+
+    .stars {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      opacity: 0.38;
+      background-image:
+        radial-gradient(1px 1px at 15% 23%, #f5d7c6 99%, transparent),
+        radial-gradient(1px 1px at 41% 14%, #f5d7c6 99%, transparent),
+        radial-gradient(1px 1px at 76% 18%, #f5d7c6 99%, transparent),
+        radial-gradient(1px 1px at 89% 37%, #f5d7c6 99%, transparent),
+        radial-gradient(1px 1px at 59% 68%, #f5d7c6 99%, transparent),
+        radial-gradient(1px 1px at 28% 78%, #f5d7c6 99%, transparent);
+      pointer-events: none;
+    }
+
+    .landscape {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      width: min(79%, 1120px);
+      height: 100%;
+      opacity: 0.86;
+      pointer-events: none;
+    }
+
+    .landscape svg { display: block; width: 100%; height: 100%; }
+
+    .shell {
+      width: min(1120px, 100%);
+      margin-inline: auto;
+    }
+
+    .masthead {
+      position: absolute;
+      top: clamp(22px, 4vw, 42px);
+      right: clamp(24px, 6vw, 82px);
+      left: clamp(24px, 6vw, 82px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1120px;
+      margin-inline: auto;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 25px;
+      height: 25px;
+      border: 1px solid rgba(255, 179, 139, 0.75);
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #ffbd87, #c65337 66%, #4f2730);
+      box-shadow: inset -6px -2px 8px rgba(5, 8, 13, 0.5);
+    }
+
+    .masthead-note,
+    .eyebrow,
+    .status-label,
+    .scenario-note {
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .masthead-note {
+      color: #c3a18d;
+      font-size: 9px;
+      text-align: right;
+    }
+
+    .content {
+      max-width: 680px;
+      padding-block: 84px 40px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 24px;
+      color: #e6b397;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    .eyebrow::before {
+      width: 24px;
+      border-top: 1px solid var(--orange);
+      content: "";
+    }
+
+    h1 {
+      max-width: 660px;
+      margin: 0;
+      font-family: "Bahnschrift SemiCondensed", "Arial Narrow", "Segoe UI", sans-serif;
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 400;
+      letter-spacing: -0.07em;
+      line-height: 0.94;
+      text-transform: uppercase;
+    }
+
+    h1 span { color: var(--peach); }
+
+    .intro {
+      max-width: 505px;
+      margin: 24px 0 0;
+      color: #c5cdd6;
+      font-size: clamp(15px, 1.8vw, 18px);
+      line-height: 1.7;
+    }
+
+    .build-status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 35px;
+      padding: 15px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .status-mark {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(255, 179, 139, 0.48);
+      border-radius: 50%;
+      color: var(--peach);
+      font-size: 14px;
+    }
+
+    .status-copy { display: grid; gap: 2px; }
+
+    .status-label {
+      color: var(--peach);
+      font-size: 9px;
+    }
+
+    .status-description {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .primary-link {
+      display: inline-flex;
+      min-height: 47px;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 0 17px;
+      border: 1px solid rgba(255, 179, 139, 0.75);
+      background: rgba(242, 118, 77, 0.12);
+      color: #ffe1d1;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 160ms ease, border-color 160ms ease;
+    }
+
+    .primary-link:hover {
+      border-color: var(--peach);
+      background: rgba(242, 118, 77, 0.22);
+    }
+
+    .secondary-link {
+      color: #d3dbe3;
+      font-size: 12px;
+      text-decoration-color: rgba(211, 219, 227, 0.45);
+      text-underline-offset: 4px;
+    }
+
+    .scenario-note {
+      margin: 36px 0 0;
+      color: var(--dim);
+      font-size: 8px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        min-height: max(680px, 100svh);
+        align-items: end;
+        padding: 30px 24px 68px;
+      }
+
+      .page::before {
+        background:
+          linear-gradient(90deg, rgba(9, 13, 20, 0.83), rgba(9, 13, 20, 0.5)),
+          linear-gradient(0deg, var(--space) 9%, rgba(9, 13, 20, 0.78) 50%, rgba(9, 13, 20, 0.14));
+      }
+
+      .landscape {
+        top: 0;
+        right: -37%;
+        width: 145%;
+        height: 72%;
+        opacity: 0.78;
+      }
+
+      .masthead {
+        top: 21px;
+        right: 22px;
+        left: 22px;
+      }
+
+      .brand { font-size: 9px; }
+      .brand-mark { width: 22px; height: 22px; }
+      .masthead-note { max-width: 145px; font-size: 7px; line-height: 1.6; }
+
+      .content {
+        padding-block: 245px 0;
+      }
+
+      .eyebrow {
+        max-width: 310px;
+        font-size: 8px;
+      }
+
+      h1 { font-size: clamp(47px, 13vw, 72px); }
+      .intro { margin-top: 17px; font-size: 14px; }
+      .build-status { margin-top: 25px; }
+      .actions { gap: 16px; }
+      .primary-link { min-height: 45px; font-size: 12px; }
+      .secondary-link { font-size: 11px; }
+      .scenario-note { margin-top: 24px; }
+    }
+
+    @media (max-width: 360px) {
+      .page { padding-inline: 19px; }
+      .masthead { right: 18px; left: 18px; }
+      .masthead-note { max-width: 115px; }
+      .actions { gap: 12px; }
+      .primary-link { gap: 10px; padding-inline: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="c"><div><div class="p"></div>Mission control is preparing the launch.<br>The game build is coming soon!</div></div>
+  <main class="page">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="landscape" aria-hidden="true">
+      <svg viewBox="0 0 1000 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sky" x1="500" y1="0" x2="500" y2="800" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#111725"/>
+            <stop offset=".58" stop-color="#733b35"/>
+            <stop offset="1" stop-color="#19171d"/>
+          </linearGradient>
+          <linearGradient id="ground" x1="500" y1="420" x2="500" y2="800" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#d07654"/>
+            <stop offset=".45" stop-color="#713a37"/>
+            <stop offset="1" stop-color="#161820"/>
+          </linearGradient>
+          <radialGradient id="sun" cx="0" cy="0" r="1" gradientTransform="matrix(0 190 -190 0 710 340)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#ffc18b" stop-opacity=".85"/>
+            <stop offset=".38" stop-color="#ee8b62" stop-opacity=".3"/>
+            <stop offset="1" stop-color="#e67352" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <path fill="url(#sky)" d="M0 0h1000v800H0z"/>
+        <circle cx="710" cy="340" r="190" fill="url(#sun)"/>
+        <circle cx="710" cy="340" r="75" fill="#f3ae7b" fill-opacity=".72"/>
+        <path d="m0 440 90-36 74 9 78-74 73 16 81-93 90 23 92-47 77 19 96-59 92 19 90-45 67 22v314H0V440Z" fill="#36252b"/>
+        <path d="m400 586 62-63 23-87 53-45 58-73 47-8 25 48 70 26 47 55 76 33 51 58 88 35v235H320l45-117 35-47Z" fill="#9b5140"/>
+        <path d="M0 606c124-46 215-51 322-18 104 33 205 23 299-15 93-38 192-21 272 4 57 18 98 18 107 12v211H0V606Z" fill="url(#ground)"/>
+        <path d="M0 679c117-38 212-48 322-14 102 32 213 23 304-10 118-43 222-14 374 4" stroke="#f0a27a" stroke-opacity=".22" stroke-width="2"/>
+        <path d="M0 0h1000v800H0z" fill="#080c13" fill-opacity=".22"/>
+      </svg>
+    </div>
+
+    <header class="masthead">
+      <a class="brand" href="../index.html" target="_top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>MISSION TRAINER</span>
+      </a>
+      <span class="masthead-note">INDEPENDENT STUDENT PROJECT</span>
+    </header>
+
+    <div class="shell">
+      <section class="content" aria-labelledby="page-title">
+        <p class="eyebrow">JUNIOR ASTRONAUT MISSION <span aria-hidden="true">/</span> GALE CRATER SCENARIO</p>
+        <h1 id="page-title">Mission control<br><span>is preparing.</span></h1>
+        <p class="intro">The Unity WebGL game has not been published yet. When the build is ready, this launch page is where the Mars mission will begin.</p>
+
+        <div class="build-status" role="status" aria-label="Game build status: in preparation">
+          <span class="status-mark" aria-hidden="true">—</span>
+          <span class="status-copy">
+            <span class="status-label">GAME BUILD IN PREPARATION</span>
+            <span class="status-description">This page is a project placeholder, not a playable game.</span>
+          </span>
+        </div>
+
+        <nav class="actions" aria-label="Project links">
+          <a class="primary-link" href="../index.html#play" target="_top">Mission overview <span aria-hidden="true">↗</span></a>
+          <a class="secondary-link" href="../index.html#science" target="_top">Explore the project sources</a>
+        </nav>
+
+        <p class="scenario-note">SIMULATED MARS SCENARIO <span aria-hidden="true">/</span> NOT LIVE TELEMETRY</p>
+      </section>
+    </div>
+  </main>
 </body>
 </html>
