@@ -72,7 +72,7 @@ async function loadSources() {
         row.href = source.url;
         row.target = "_blank";
         row.rel = "noopener";
-        row.setAttribute("aria-label", `${source.title} — opens in a new tab`);
+        row.setAttribute("aria-label", `View ${source.title} source in a new tab`);
       }
 
       const number = document.createElement("span");
@@ -95,7 +95,7 @@ async function loadSources() {
       const arrow = document.createElement("span");
       arrow.className = "source-arrow";
       arrow.setAttribute("aria-hidden", "true");
-      arrow.textContent = hasUrl ? "↗" : "—";
+      arrow.textContent = hasUrl ? "View source ↗" : "No link";
 
       copy.append(title, provider, description);
       row.append(number, copy, arrow);
@@ -105,7 +105,7 @@ async function loadSources() {
     sourceList.replaceChildren(fragment);
     sourceCount.textContent = `${data.sources.length} SOURCES`;
   } catch (error) {
-    console.error("Could not load the project data sources.", error);
+    console.warn("Could not load the project data sources.", error);
     showSourcesMessage("The source list could not be loaded. Please try again later.", "UNAVAILABLE");
   }
 }

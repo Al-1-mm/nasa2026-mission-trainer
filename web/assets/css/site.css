@@ -108,9 +108,7 @@ button {
   z-index: 10;
   inset: 0 0 auto;
   border-bottom: 1px solid rgba(226, 232, 239, 0.1);
-  background: rgba(8, 12, 19, 0.82);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  background: rgba(8, 12, 19, 0.96);
 }
 
 .nav-shell {
@@ -248,7 +246,6 @@ button {
   height: 83%;
   border-radius: 50%;
   background: radial-gradient(ellipse, rgba(186, 78, 51, 0.19), rgba(98, 45, 37, 0.08) 40%, transparent 69%);
-  filter: blur(12px);
 }
 
 .hero-planet {
@@ -269,7 +266,7 @@ button {
   box-shadow:
     inset -80px -24px 110px rgba(6, 9, 15, 0.94),
     inset 27px 8px 55px rgba(255, 190, 135, 0.17),
-    0 0 100px rgba(199, 81, 52, 0.15);
+    0 0 54px rgba(199, 81, 52, 0.15);
 }
 
 .planet-surface {
@@ -285,7 +282,6 @@ button {
     radial-gradient(ellipse at 72% 28%, rgba(104, 49, 43, 0.13), transparent 21%),
     radial-gradient(ellipse at 47% 47%, rgba(241, 169, 122, 0.1), transparent 29%);
   opacity: 0.72;
-  mix-blend-mode: multiply;
 }
 
 .planet-rim {
@@ -353,7 +349,6 @@ button {
 .sources-heading,
 .source-index,
 .source-provider,
-.commander-label,
 .team-index,
 .chrome-state {
   font-family: var(--font-mono);
@@ -463,14 +458,14 @@ button {
   gap: 10px;
   margin-top: 54px;
   color: #b6bec8;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .hero-status .status-pulse {
   width: 6px;
   height: 6px;
-  background: var(--signal);
-  box-shadow: 0 0 10px rgba(121, 199, 168, 0.55);
+  background: var(--mars-orange);
+  box-shadow: 0 0 10px rgba(242, 118, 77, 0.55);
 }
 
 .status-divider {
@@ -487,7 +482,7 @@ button {
   align-items: center;
   gap: 12px;
   color: rgba(234, 224, 218, 0.76);
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .caption-line {
@@ -541,7 +536,7 @@ button {
   align-items: center;
   gap: 10px;
   color: #c5ccd5;
-  font-size: 9px;
+  font-size: 10px;
   white-space: nowrap;
 }
 
@@ -735,7 +730,7 @@ button {
 
 .spec-index {
   color: var(--text-dim);
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .spec-item strong {
@@ -767,8 +762,10 @@ button {
   padding: 12px 0;
   border-top: 1px solid var(--line);
   color: var(--text-dim);
-  font-size: 9px;
-  letter-spacing: 0.06em;
+  color: #a9b4c1;
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0;
 }
 
 .control-section {
@@ -814,25 +811,22 @@ button {
 .panel-bottomline {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 14px;
-  color: #aab5c2;
-  font-size: 8px;
+  color: #c1cad4;
+  font-size: 9px;
+  letter-spacing: 0.035em;
 }
 
 .panel-topline > span:first-child {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  color: #e2e7ec;
+  color: #edf0f3;
 }
 
-.panel-light {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--mars-orange);
-  box-shadow: 0 0 11px rgba(242, 118, 77, 0.5);
+.panel-topline {
+  justify-content: space-between;
 }
 
 .panel-separator {
@@ -848,7 +842,7 @@ button {
 .resource-row {
   display: grid;
   grid-template-columns: minmax(180px, 0.8fr) minmax(140px, 1fr) minmax(88px, 0.28fr);
-  min-height: 70px;
+  min-height: 76px;
   align-items: center;
   gap: clamp(16px, 4vw, 50px);
   border-bottom: 1px solid var(--line);
@@ -858,8 +852,8 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 11px;
-  color: #dce2e8;
-  font-size: 13px;
+  color: #e6eaf0;
+  font-size: 14px;
 }
 
 .resource-symbol {
@@ -945,6 +939,7 @@ button {
 }
 
 .resource-track {
+  position: relative;
   height: 5px;
   overflow: hidden;
   background: rgba(179, 194, 211, 0.13);
@@ -961,21 +956,23 @@ button {
   justify-self: end;
   color: #f0f2f4;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
 }
 
 .resource-unit {
-  color: var(--text-dim);
-  font-size: 9px;
+  color: #a9b4c1;
+  font-size: 10px;
   font-weight: 400;
 }
 
 .panel-bottomline {
   min-height: 48px;
-  color: var(--text-dim);
-  font-size: 8px;
+  color: #b6c0cc;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0;
 }
 
 .play-section {
@@ -1306,7 +1303,7 @@ button {
   padding: 0 0 13px;
   border-bottom: 1px solid var(--line-strong);
   color: #aeb8c4;
-  font-size: 8px;
+  font-size: 10px;
 }
 
 .sources-heading span:last-child {
@@ -1319,7 +1316,7 @@ button {
 
 .source-row {
   display: grid;
-  grid-template-columns: 30px minmax(0, 1fr) 18px;
+  grid-template-columns: 30px minmax(0, 1fr) max-content;
   align-items: start;
   gap: 13px;
   padding: 17px 4px 17px 0;
@@ -1336,13 +1333,13 @@ a.source-row:hover {
 .source-index {
   padding-top: 3px;
   color: var(--mars-light);
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .source-copy h3 {
   margin: 0;
-  color: #e8ebef;
-  font-size: 13px;
+  color: #f0f3f6;
+  font-size: 15px;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -1350,22 +1347,25 @@ a.source-row:hover {
 .source-provider {
   display: block;
   margin-top: 4px;
-  color: #a4afbd;
-  font-size: 8px;
-  letter-spacing: 0.07em;
+  color: #c1cad4;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.015em;
 }
 
 .source-copy p {
-  margin: 7px 0 0;
-  color: var(--text-secondary);
-  font-size: 11px;
+  margin: 6px 0 0;
+  color: #b7c1cd;
+  font-size: 13px;
   line-height: 1.55;
 }
 
 .source-arrow {
   padding-top: 2px;
-  color: #99a7b8;
-  font-size: 13px;
+  color: #efad8a;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
   transition: color 180ms ease, transform 180ms ease;
 }
 
@@ -1377,8 +1377,8 @@ a.source-row:hover .source-arrow {
 .sources-status {
   margin: 0;
   padding: 18px 0;
-  color: var(--text-secondary);
-  font-size: 12px;
+  color: #c1cad4;
+  font-size: 13px;
 }
 
 .commander-section {
@@ -1399,98 +1399,127 @@ a.source-row:hover .source-arrow {
 .commander-graphic {
   position: relative;
   display: grid;
-  width: min(100%, 360px);
-  aspect-ratio: 1;
+  width: min(100%, 420px);
+  aspect-ratio: 1.15;
   justify-self: center;
-  place-items: center;
-  border: 1px solid rgba(174, 193, 214, 0.14);
-  border-radius: 50%;
+  align-items: center;
+  padding: clamp(14px, 2.5vw, 28px);
+  border-left: 1px solid rgba(255, 173, 123, 0.56);
+  border-bottom: 1px solid var(--line-strong);
   background:
-    radial-gradient(circle at center, rgba(209, 115, 77, 0.17), rgba(22, 32, 46, 0.12) 32%, transparent 62%),
-    repeating-radial-gradient(circle at center, transparent 0 43px, rgba(188, 202, 218, 0.07) 44px, transparent 45px);
+    linear-gradient(135deg, rgba(29, 41, 54, 0.68), rgba(10, 16, 24, 0.28)),
+    repeating-linear-gradient(0deg, transparent 0 35px, rgba(188, 202, 218, 0.035) 36px);
 }
 
-.commander-graphic::before,
-.commander-graphic::after {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border: 1px solid var(--mars-light);
-  border-radius: 50%;
-  background: var(--space-850);
-  content: "";
+.commander-id-card {
+  min-width: 0;
+  padding: 14px 15px 11px;
+  border: 1px solid rgba(174, 193, 214, 0.18);
+  background: rgba(7, 11, 17, 0.55);
 }
 
-.commander-graphic::before {
-  top: 18%;
-  left: 24%;
+.commander-card-top,
+.commander-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #b7c1cd;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.075em;
 }
 
-.commander-graphic::after {
-  right: 13%;
-  bottom: 31%;
+.commander-card-top span:last-child {
+  color: #e7b192;
 }
 
-.commander-orbit {
-  position: absolute;
-  width: 76%;
-  height: 42%;
-  transform: rotate(-42deg);
-  border: 1px solid rgba(255, 173, 123, 0.34);
-  border-radius: 50%;
-}
-
-.orbit-b {
-  width: 90%;
-  height: 55%;
-  transform: rotate(48deg);
-  border-color: rgba(177, 198, 219, 0.19);
+.commander-card-body {
+  display: flex;
+  align-items: center;
+  gap: clamp(15px, 3vw, 28px);
+  padding-block: 18px;
 }
 
 .commander-core {
   position: relative;
   display: grid;
-  width: 84px;
-  height: 84px;
+  width: clamp(58px, 7vw, 80px);
+  height: clamp(58px, 7vw, 80px);
+  flex: 0 0 auto;
   place-items: center;
   border: 1px solid rgba(255, 173, 123, 0.55);
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #9a5c4d, #342a32 65%, #151a25);
-  box-shadow: 0 0 45px rgba(232, 111, 73, 0.2), inset 0 0 21px rgba(255, 199, 159, 0.12);
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 190, 143, 0.58), transparent 18%),
+    radial-gradient(circle at 38% 36%, #a95443, #432c33 72%, #171a24);
+  box-shadow: inset -10px -5px 16px rgba(4, 8, 14, 0.66);
 }
 
 .commander-core span {
-  color: #ffe1cf;
+  color: #fff0e5;
   font-family: var(--font-display);
-  font-size: 35px;
+  font-size: clamp(27px, 3.2vw, 38px);
   font-weight: 400;
 }
 
-.commander-core i {
-  position: absolute;
-  top: 17px;
-  right: 15px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--signal);
-  box-shadow: 0 0 9px rgba(121, 199, 168, 0.7);
+.commander-card-name {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
 }
 
-.commander-label {
-  position: absolute;
-  color: #c1cbd6;
+.commander-card-name span {
+  color: #b7c1cd;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.commander-card-name strong {
+  color: #f2c0a3;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+}
+
+.commander-wave {
+  display: flex;
+  height: 24px;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 13px;
+  border-top: 1px solid rgba(174, 193, 214, 0.13);
+}
+
+.commander-wave i {
+  display: block;
+  width: 2px;
+  height: 6px;
+  flex: 1 1 auto;
+  background: rgba(242, 118, 77, 0.72);
+}
+
+.commander-wave i:nth-child(3n) {
+  height: 11px;
+}
+
+.commander-wave i:nth-child(4n) {
+  height: 17px;
+}
+
+.commander-wave i:nth-child(7n) {
+  height: 21px;
+  background: #e6a180;
+}
+
+.commander-card-foot {
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: #a4afbd;
   font-size: 8px;
-}
-
-.label-top {
-  top: 8%;
-  right: 5%;
-}
-
-.label-bottom {
-  bottom: 9%;
-  left: 8%;
 }
 
 .commander-copy h2 {
@@ -1591,7 +1620,7 @@ a.source-row:hover .source-arrow {
   max-width: 410px;
   margin: 0;
   color: var(--text-secondary);
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .footer-main > p a {
@@ -1609,7 +1638,7 @@ a.source-row:hover .source-arrow {
   align-items: center;
   gap: 9px;
   color: #d8dee6;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -1625,8 +1654,8 @@ a.source-row:hover .source-arrow {
   justify-content: space-between;
   gap: 15px;
   border-top: 1px solid var(--line);
-  color: #778393;
-  font-size: 10px;
+  color: #aab5c2;
+  font-size: 12px;
 }
 
 .footer-bottom a {
@@ -1842,7 +1871,7 @@ a.source-row:hover .source-arrow {
 
   .eyebrow {
     margin-bottom: 20px;
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .hero h1 {
@@ -1867,13 +1896,13 @@ a.source-row:hover .source-arrow {
   .hero-status {
     flex-wrap: wrap;
     margin-top: 33px;
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .hero-caption {
     right: var(--page-gutter);
     bottom: 32px;
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .scroll-cue {
@@ -1990,8 +2019,8 @@ a.source-row:hover .source-arrow {
 
   .panel-topline,
   .panel-bottomline {
-    font-size: 7px;
-    letter-spacing: 0.07em;
+    font-size: 9px;
+    letter-spacing: 0.025em;
   }
 
   .panel-topline {
@@ -1999,7 +2028,7 @@ a.source-row:hover .source-arrow {
   }
 
   .panel-topline > span:last-child {
-    max-width: 46%;
+    max-width: none;
     text-align: right;
   }
 
@@ -2026,7 +2055,7 @@ a.source-row:hover .source-arrow {
   }
 
   .resource-unit {
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .panel-bottomline {
@@ -2053,12 +2082,12 @@ a.source-row:hover .source-arrow {
 
   .chrome-brand {
     gap: 6px;
-    font-size: 7px;
+    font-size: 8px;
     letter-spacing: 0.04em;
   }
 
   .chrome-state {
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .game-frame {
@@ -2133,7 +2162,8 @@ a.source-row:hover .source-arrow {
   }
 
   .commander-graphic {
-    width: min(76vw, 285px);
+    width: min(100%, 420px);
+    aspect-ratio: 1.28;
   }
 
   .commander-copy h2 {
@@ -2181,7 +2211,7 @@ a.source-row:hover .source-arrow {
   }
 
   .team-role {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .footer-main {
@@ -2198,14 +2228,14 @@ a.source-row:hover .source-arrow {
 
   .footer-github {
     justify-self: end;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .footer-bottom {
     flex-wrap: wrap;
     justify-content: space-between;
     padding-block: 12px;
-    font-size: 9px;
+    font-size: 11px;
   }
 }
 
@@ -2269,8 +2299,8 @@ a.source-row:hover .source-arrow {
 
   .hero-status {
     gap: 7px;
-    font-size: 7px;
-    letter-spacing: 0.08em;
+    font-size: 8px;
+    letter-spacing: 0.045em;
   }
 
   .status-divider {
@@ -2279,7 +2309,7 @@ a.source-row:hover .source-arrow {
 
   .hero-caption {
     gap: 7px;
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .caption-line {
@@ -2288,8 +2318,8 @@ a.source-row:hover .source-arrow {
 
   .section-kicker {
     gap: 7px;
-    font-size: 8px;
-    letter-spacing: 0.1em;
+    font-size: 9px;
+    letter-spacing: 0.055em;
   }
 
   .kicker-rule {
@@ -2309,15 +2339,11 @@ a.source-row:hover .source-arrow {
 
   .panel-topline,
   .panel-bottomline {
-    font-size: 6px;
+    font-size: 9px;
   }
 
   .panel-topline {
     gap: 8px;
-  }
-
-  .panel-topline > span:last-child {
-    max-width: 48%;
   }
 
   .panel-separator {
@@ -2326,7 +2352,7 @@ a.source-row:hover .source-arrow {
 
   .resource-name {
     gap: 8px;
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .resource-symbol {
@@ -2338,33 +2364,36 @@ a.source-row:hover .source-arrow {
   }
 
   .chrome-brand {
-    font-size: 6px;
+    font-size: 7px;
   }
 
   .chrome-state {
     gap: 5px;
-    font-size: 6px;
+    font-size: 7px;
   }
 
   .game-toolbar p {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .sources-heading {
-    font-size: 7px;
-    letter-spacing: 0.08em;
-  }
-
-  .source-row {
-    grid-template-columns: 23px minmax(0, 1fr) 15px;
-    gap: 9px;
+    font-size: 9px;
+    letter-spacing: 0.015em;
   }
 
   .source-copy h3 {
-    font-size: 12px;
+    font-size: 13px;
+  }
+
+  .source-provider {
+    font-size: 11px;
   }
 
   .source-copy p {
+    font-size: 12px;
+  }
+
+  .source-arrow {
     font-size: 10px;
   }
 
@@ -2374,6 +2403,7 @@ a.source-row:hover .source-arrow {
   }
 
   .team-role {
+    font-size: 11px;
     line-height: 1.4;
     overflow-wrap: anywhere;
   }
@@ -2386,10 +2416,16 @@ a.source-row:hover .source-arrow {
   .footer-main > p {
     grid-row: auto;
     grid-column: auto;
+    font-size: 12px;
   }
 
   .footer-github {
     justify-self: start;
+    font-size: 11px;
+  }
+
+  .footer-bottom {
+    font-size: 11px;
   }
 }
 

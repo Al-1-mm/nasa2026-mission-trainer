@@ -118,32 +118,32 @@
         </div>
         <div class="control-panel">
           <div class="panel-topline">
-            <span><span class="panel-light"></span> MARS / GALE CRATER</span>
-            <span>SCENARIO BASELINE <span class="panel-separator">/</span> NOT LIVE TELEMETRY</span>
+            <span>MARS <span class="panel-separator">/</span> START VALUES</span>
+            <span>NOT LIVE</span>
           </div>
           <div class="resource-list">
             <div class="resource-row">
               <span class="resource-name"><i class="resource-symbol symbol-air" aria-hidden="true"></i>Air &amp; water</span>
-              <div class="resource-track" aria-hidden="true"><span style="--level: 80%"></span></div>
+              <div class="resource-track" role="meter" aria-label="Air and water starting level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-valuetext="80 out of 100"><span style="--level: 80%"></span></div>
               <strong>80<span class="resource-unit"> / 100</span></strong>
             </div>
             <div class="resource-row">
               <span class="resource-name"><i class="resource-symbol symbol-food" aria-hidden="true"></i>Food</span>
-              <div class="resource-track" aria-hidden="true"><span style="--level: 80%"></span></div>
+              <div class="resource-track" role="meter" aria-label="Food starting level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-valuetext="80 out of 100"><span style="--level: 80%"></span></div>
               <strong>80<span class="resource-unit"> / 100</span></strong>
             </div>
             <div class="resource-row">
               <span class="resource-name"><i class="resource-symbol symbol-dose" aria-hidden="true"></i>Radiation dose</span>
-              <div class="resource-track" aria-hidden="true"><span style="--level: 0%"></span></div>
+              <div class="resource-track" role="meter" aria-label="Radiation dose starting level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 out of 100"><span style="--level: 0%"></span></div>
               <strong>0<span class="resource-unit"> / 100</span></strong>
             </div>
             <div class="resource-row">
               <span class="resource-name"><i class="resource-symbol symbol-science" aria-hidden="true"></i>Science</span>
-              <div class="resource-track" aria-hidden="true"><span style="--level: 0%"></span></div>
+              <div class="resource-track" role="meter" aria-label="Science starting score" aria-valuemin="0" aria-valuemax="24" aria-valuenow="0" aria-valuetext="0 points, goal 24"><span style="--level: 0%"></span></div>
               <strong>0<span class="resource-unit"> / 24 goal</span></strong>
             </div>
           </div>
-          <div class="panel-bottomline"><span>POWER IS A DAILY DECISION</span><span>SCENARIO CONFIGURATION / MARS</span></div>
+          <div class="panel-bottomline"><span>Scenario start <span class="panel-separator">/</span> Science target: 24 points</span></div>
         </div>
       </div>
     </section>
@@ -221,11 +221,17 @@
     <section class="commander-section section-pad" id="commander" aria-labelledby="commander-title">
       <div class="page-width commander-layout">
         <div class="commander-graphic" aria-hidden="true">
-          <div class="commander-orbit orbit-a"></div>
-          <div class="commander-orbit orbit-b"></div>
-          <div class="commander-core"><span>N</span><i></i></div>
-          <span class="commander-label label-top">VOICE / NOVA</span>
-          <span class="commander-label label-bottom">MISSION SUPPORT</span>
+          <div class="commander-id-card">
+            <div class="commander-card-top"><span>MISSION VOICE</span><span>AI + FALLBACK</span></div>
+            <div class="commander-card-body">
+              <div class="commander-core"><span>N</span></div>
+              <div class="commander-card-name"><span>COMMANDER</span><strong>NOVA</strong></div>
+            </div>
+            <div class="commander-wave">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="commander-card-foot">MISSION TURN EXPLANATIONS</div>
+          </div>
         </div>
         <div class="commander-copy">
           <div class="section-kicker"><span>07</span><span class="kicker-rule"></span><span>AI COMMANDER</span></div>
