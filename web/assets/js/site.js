@@ -36,6 +36,14 @@ if (menuToggle && primaryNav) {
 const sourceList = document.querySelector("#sources");
 const sourceCount = document.querySelector("#sources-count");
 
+const sourceConnections = new Map([
+  ["radlab_msl", "Used by the solar-particle-storm event profile in the game scenario."],
+  ["donki", "Space-weather risk from the bundled snapshot or configured service informs the solar-storm event chance."],
+  ["comms_delay", "Provides context for the communication-delay learning scenario and Weather Station warning decision."],
+  ["opportunity_2018", "Referenced by the dust-storm event, which halves available scenario solar power."],
+  ["nasa_std_3001", "Provides radiation-limit context; the game uses a separate, simplified scenario dose cap."],
+]);
+
 function showSourcesMessage(message, state) {
   if (!sourceList || !sourceCount) return;
   const status = document.createElement("p");
@@ -92,12 +100,20 @@ async function loadSources() {
       const description = document.createElement("p");
       description.textContent = source.usedFor || "Project source; additional description is not available.";
 
+      const connection = document.createElement("div");
+      connection.className = "source-connection";
+      const connectionLabel = document.createElement("span");
+      connectionLabel.textContent = "PROJECT CONNECTION";
+      const connectionText = document.createElement("p");
+      connectionText.textContent = sourceConnections.get(source.id) || "This source is listed in the project's shared data register; its specific gameplay connection is not described in the available project data.";
+      connection.append(connectionLabel, connectionText);
+
       const arrow = document.createElement("span");
       arrow.className = "source-arrow";
       arrow.setAttribute("aria-hidden", "true");
       arrow.textContent = hasUrl ? "View source ↗" : "No link";
 
-      copy.append(title, provider, description);
+      copy.append(title, provider, description, connection);
       row.append(number, copy, arrow);
       fragment.append(row);
     });
