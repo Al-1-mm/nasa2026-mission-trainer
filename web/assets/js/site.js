@@ -75,7 +75,7 @@ async function loadSources() {
     data.sources.forEach((source, index) => {
       const hasUrl = typeof source.url === "string" && source.url.trim() !== "";
       const row = document.createElement(hasUrl ? "a" : "div");
-      row.className = "source-row";
+      row.className = "source-row" + (hasUrl ? " is-clickable" : "");
 
       if (hasUrl) {
         row.href = source.url;
@@ -84,38 +84,57 @@ async function loadSources() {
         row.setAttribute("aria-label", `View ${source.title} source in a new tab`);
       }
 
+      const topBar = document.createElement("div");
+      topBar.className = "source-top-bar";
+
+      const badgeGroup = document.createElement("div");
+      badgeGroup.className = "source-badge-group";
+
       const number = document.createElement("span");
       number.className = "source-index";
-      number.textContent = String(index + 1).padStart(2, "0");
-
-      const copy = document.createElement("div");
-      copy.className = "source-copy";
-
-      const title = document.createElement("h3");
-      title.textContent = source.title || "Untitled source";
+      number.textContent = `SRC 0${index + 1}`;
 
       const provider = document.createElement("span");
       provider.className = "source-provider";
-      provider.textContent = source.provider || "Provider not specified";
+      const dot = document.createElement("span");
+      dot.className = "provider-dot";
+      dot.setAttribute("aria-hidden", "true");
+      provider.append(dot, document.createTextNode(source.provider || "NASA DATASET"));
 
-      const description = document.createElement("p");
-      description.textContent = source.usedFor || "Project source; additional description is not available.";
-
-      const connection = document.createElement("div");
-      connection.className = "source-connection";
-      const connectionLabel = document.createElement("span");
-      connectionLabel.textContent = "PROJECT CONNECTION";
-      const connectionText = document.createElement("p");
-      connectionText.textContent = sourceConnections.get(source.id) || "This source is listed in the project's shared data register; its specific gameplay connection is not described in the available project data.";
-      connection.append(connectionLabel, connectionText);
+      badgeGroup.append(number, provider);
 
       const arrow = document.createElement("span");
       arrow.className = "source-arrow";
       arrow.setAttribute("aria-hidden", "true");
-      arrow.textContent = hasUrl ? "View source ↗" : "No link";
+      arrow.textContent = hasUrl ? "Explore source ↗" : "Internal register";
 
-      copy.append(title, provider, description, connection);
-      row.append(number, copy, arrow);
+      topBar.append(badgeGroup, arrow);
+
+      const title = document.createElement("h3");
+      title.className = "source-title";
+      title.textContent = source.title || "Untitled source";
+
+      const description = document.createElement("p");
+      description.className = "source-desc";
+      description.textContent = source.usedFor || "Project source; additional description is not available.";
+
+      const connection = document.createElement("div");
+      connection.className = "source-connection";
+      const connectionHeader = document.createElement("div");
+      connectionHeader.className = "source-connection-header";
+      const connectionIcon = document.createElement("span");
+      connectionIcon.className = "connection-icon";
+      connectionIcon.setAttribute("aria-hidden", "true");
+      connectionIcon.textContent = "◈";
+      const connectionLabel = document.createElement("span");
+      connectionLabel.textContent = "MISSION INTEGRATION";
+      connectionHeader.append(connectionIcon, connectionLabel);
+
+      const connectionText = document.createElement("p");
+      connectionText.textContent = sourceConnections.get(source.id) || "This source is listed in the project's shared data register; its specific gameplay connection is not described in the available project data.";
+      connection.append(connectionHeader, connectionText);
+
+      row.append(topBar, title, description, connection);
       fragment.append(row);
     });
 

@@ -255,7 +255,7 @@ button {
 .hero-visual-caption {
   position: absolute;
   right: clamp(24px, 5vw, 76px);
-  bottom: 69px;
+  bottom: 34px;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -264,6 +264,7 @@ button {
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.11em;
+  pointer-events: none;
 }
 
 .hero-visual-caption i {
@@ -473,13 +474,14 @@ button {
   position: absolute;
   z-index: 3;
   right: var(--page-gutter);
-  bottom: 71px;
+  bottom: clamp(86px, 11vh, 112px);
   display: grid;
   min-width: 238px;
   gap: 7px;
   padding: 16px 19px 15px;
   border-left: 1px solid rgba(255, 173, 123, 0.65);
-  background: linear-gradient(90deg, rgba(9, 13, 20, 0.68), rgba(9, 13, 20, 0.2));
+  background: linear-gradient(90deg, rgba(9, 13, 20, 0.78), rgba(9, 13, 20, 0.35));
+  backdrop-filter: blur(4px);
 }
 
 .plate-kicker,
@@ -1527,55 +1529,94 @@ button {
   overflow: hidden;
   border-top: 1px solid var(--line);
   background:
-    radial-gradient(ellipse at 5% 80%, rgba(111, 69, 53, 0.1), transparent 40%),
-    var(--space-950);
+    radial-gradient(ellipse at 85% 15%, rgba(242, 118, 77, 0.14) 0%, transparent 45%),
+    radial-gradient(ellipse at 15% 85%, rgba(70, 115, 175, 0.14) 0%, transparent 50%),
+    linear-gradient(180deg, #070b12 0%, #0c121d 50%, #070b12 100%);
 }
 
 .science-layout {
   display: grid;
-  grid-template-columns: minmax(230px, 0.76fr) minmax(0, 1.24fr);
+  grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
   align-items: start;
-  gap: clamp(44px, 9vw, 126px);
+  gap: clamp(44px, 7vw, 110px);
 }
 
 .science-intro h2 {
   font-size: clamp(39px, 4.8vw, 60px);
 }
 
+.science-intro h2 em {
+  background: linear-gradient(90deg, #ff9a5c 0%, #f2764d 50%, #ffd166 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style: normal;
+  display: inline-block;
+  filter: drop-shadow(0 0 25px rgba(242, 118, 77, 0.35));
+}
+
 .science-lead {
-  max-width: 380px;
+  max-width: 420px;
   margin: 20px 0 0;
-  color: #d7dce3;
+  color: #dbe2ea;
   font-size: 16px;
+  line-height: 1.6;
 }
 
 .science-caveat {
-  max-width: 355px;
+  max-width: 400px;
   margin: 14px 0 0;
-  color: var(--text-secondary);
-  font-size: 12px;
+  color: #92a0b1;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .science-note {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  max-width: 380px;
-  margin-top: 29px;
-  padding-top: 15px;
-  border-top: 1px solid var(--line);
+  gap: 14px;
+  max-width: 420px;
+  margin-top: 30px;
+  padding: 18px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(22, 30, 44, 0.75) 0%, rgba(12, 17, 26, 0.85) 100%);
+  border: 1px solid rgba(255, 173, 123, 0.25);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.science-note::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  background: linear-gradient(180deg, #ff9a5c, #f2764d);
 }
 
 .note-mark {
-  color: var(--mars-light);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(242, 118, 77, 0.16);
+  border: 1px solid rgba(242, 118, 77, 0.45);
+  color: #ff9a5c;
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: 700;
+  flex: 0 0 auto;
 }
 
 .science-note p {
   margin: 0;
-  color: var(--text-dim);
-  font-size: 11px;
+  color: #c9d5e3;
+  font-size: 12.5px;
+  line-height: 1.55;
 }
 
 .sources-heading {
@@ -1600,74 +1641,205 @@ button {
 }
 
 .sources-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   min-height: 60px;
 }
 
 .source-row {
-  display: grid;
-  grid-template-columns: 30px minmax(0, 1fr) max-content;
-  align-items: start;
-  gap: 13px;
-  padding: 17px 4px 17px 0;
-  border-bottom: 1px solid var(--line);
-  transition: padding 180ms ease, border-color 180ms ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 173, 123, 0.2);
+  background: linear-gradient(145deg, rgba(18, 25, 37, 0.88) 0%, rgba(10, 14, 22, 0.94) 100%);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 24px -2px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 240ms ease,
+              box-shadow 240ms ease,
+              background 240ms ease;
+  text-decoration: none;
+  overflow: hidden;
 }
 
-a.source-row:hover {
-  padding-right: 0;
-  padding-left: 5px;
-  border-color: rgba(242, 118, 77, 0.42);
+.source-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #ff9a5c 0%, rgba(224, 112, 58, 0.2) 100%);
+  opacity: 0.7;
+  transition: opacity 220ms ease, width 220ms ease;
+}
+
+a.source-row.is-clickable:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 173, 123, 0.55);
+  box-shadow: 0 14px 36px -4px rgba(0, 0, 0, 0.75), 0 0 28px -2px rgba(242, 118, 77, 0.3);
+  background: linear-gradient(145deg, rgba(24, 34, 52, 0.92) 0%, rgba(13, 18, 28, 0.98) 100%);
+}
+
+a.source-row.is-clickable:hover::before {
+  opacity: 1;
+  width: 5px;
+}
+
+.source-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(192, 207, 224, 0.09);
+}
+
+.source-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .source-index {
-  padding-top: 3px;
-  color: var(--mars-light);
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  background: rgba(242, 118, 77, 0.15);
+  border: 1px solid rgba(242, 118, 77, 0.4);
+  border-radius: 4px;
+  color: #ffb38b;
+  font-family: var(--font-mono);
   font-size: 10px;
-}
-
-.source-copy h3 {
-  margin: 0;
-  color: #f0f3f6;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
 .source-provider {
-  display: block;
-  margin-top: 4px;
-  color: #c1cad4;
-  font-family: var(--font-body);
-  font-size: 11px;
-  letter-spacing: 0.015em;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: rgba(111, 211, 165, 0.09);
+  border: 1px solid rgba(111, 211, 165, 0.3);
+  color: #7de8b7;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.source-copy p {
-  margin: 6px 0 0;
-  color: #b7c1cd;
+.provider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6fd3a5;
+  box-shadow: 0 0 8px #6fd3a5;
+  animation: pulse-dot 2.4s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.6; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 12px #6fd3a5; }
+}
+
+.source-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 13px;
+  border-radius: 6px;
+  background: rgba(242, 118, 77, 0.1);
+  border: 1px solid rgba(242, 118, 77, 0.32);
+  color: #ffb38b;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all 200ms ease;
+  white-space: nowrap;
+}
+
+a.source-row:hover .source-arrow {
+  background: #e0703a;
+  color: #0b0f16;
+  border-color: #e0703a;
+  box-shadow: 0 0 16px rgba(224, 112, 58, 0.55);
+  transform: translate(2px, -1px);
+}
+
+.source-title {
+  margin: 3px 0 0;
+  color: #f7f9fa;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  transition: color 180ms ease;
+}
+
+a.source-row:hover .source-title {
+  color: #ffffff;
+}
+
+.source-desc {
+  margin: 0;
+  color: #b5c2d0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.source-connection {
+  margin-top: 4px;
+  padding: 12px 18px;
+  background: linear-gradient(90deg, rgba(242, 118, 77, 0.1) 0%, rgba(242, 118, 77, 0.02) 100%);
+  border-left: 3px solid #f2764d;
+  border-radius: 0 8px 8px 0;
+  border-top: 1px solid rgba(242, 118, 77, 0.15);
+  border-right: 1px solid rgba(242, 118, 77, 0.1);
+  border-bottom: 1px solid rgba(242, 118, 77, 0.1);
+}
+
+.source-connection-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #ff9a5c;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.connection-icon {
+  color: #ff9a5c;
+  font-size: 11px;
+}
+
+.source-connection p {
+  margin: 5px 0 0;
+  color: #dbe4ee;
   font-size: 13px;
   line-height: 1.55;
 }
 
-.source-arrow {
-  padding-top: 2px;
-  color: #efad8a;
-  font-size: 11px;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: color 180ms ease, transform 180ms ease;
-}
-
-a.source-row:hover .source-arrow {
-  transform: translate(2px, -2px);
-  color: var(--mars-light);
-}
-
 .sources-status {
   margin: 0;
-  padding: 18px 0;
+  padding: 24px;
+  border-radius: 8px;
+  background: rgba(18, 25, 37, 0.6);
+  border: 1px solid var(--line);
   color: #c1cad4;
-  font-size: 13px;
+  font-size: 14px;
+  text-align: center;
 }
 
 .commander-section {
@@ -1954,6 +2126,14 @@ a.source-row:hover .source-arrow {
 @media (max-width: 1000px) {
   :root {
     --page-gutter: 38px;
+  }
+
+  .hero-visual-caption {
+    bottom: 26px;
+  }
+
+  .hero-mission-plate {
+    bottom: 74px;
   }
 
   .nav-shell {
@@ -5442,4 +5622,307 @@ a.source-row:hover .source-arrow {
 
 .science-check-box a:hover {
   color: #ffb38b;
+}
+
+/* ==========================================================================
+   ENHANCED VISUAL POLISH & SCI-FI AESTHETICS (GLOBAL UPGRADE)
+   ========================================================================== */
+
+/* --- 1. Ambient Space Depth & Section Atmosphere --- */
+body {
+  background-attachment: fixed;
+  background-image:
+    radial-gradient(ellipse at 85% 12%, rgba(224, 112, 58, 0.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 10% 45%, rgba(60, 110, 165, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 80%, rgba(224, 112, 58, 0.07) 0%, transparent 45%);
+}
+
+.hero {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 70% 35%, rgba(224, 112, 58, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 70%, rgba(45, 75, 120, 0.14) 0%, transparent 50%),
+    var(--space-950);
+}
+
+.challenge-section {
+  background:
+    radial-gradient(ellipse at 90% 80%, rgba(224, 112, 58, 0.1) 0%, transparent 40%),
+    linear-gradient(180deg, rgba(8, 12, 19, 0.95) 0%, rgba(13, 19, 29, 0.95) 100%);
+}
+
+.survival-section {
+  background:
+    radial-gradient(ellipse at 15% 40%, rgba(111, 211, 165, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 65%, rgba(224, 112, 58, 0.09) 0%, transparent 45%),
+    linear-gradient(180deg, #090e16 0%, #0d1421 100%);
+}
+
+.commander-section {
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(224, 112, 58, 0.18) 0%, transparent 40%),
+    linear-gradient(110deg, #101824 0%, #0a0f18 70%);
+}
+
+.play-section {
+  background:
+    radial-gradient(ellipse at 50% 15%, rgba(224, 112, 58, 0.14) 0%, transparent 50%),
+    linear-gradient(180deg, #070a10 0%, #0e1420 50%, #070a10 100%);
+}
+
+/* --- 2. Kinetic HUD Buttons & Badges --- */
+.button-primary {
+  border: 1px solid rgba(255, 173, 123, 0.45);
+  background: linear-gradient(135deg, #e0703a 0%, #f2764d 50%, #f58a55 100%);
+  color: #0d0604;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 22px -2px rgba(224, 112, 58, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 200ms ease,
+              border-color 200ms ease;
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  border-color: #ffc09a;
+  background: linear-gradient(135deg, #ff824c 0%, #ff9566 50%, #ffa577 100%);
+  box-shadow: 0 8px 32px rgba(224, 112, 58, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.nav-cta {
+  border: 1px solid rgba(255, 173, 123, 0.45);
+  background: rgba(224, 112, 58, 0.1);
+  color: #ffe5d6;
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(224, 112, 58, 0.15);
+  transition: all 200ms ease;
+}
+
+.nav-cta:hover {
+  border-color: #ffb38b;
+  background: #e0703a;
+  color: #0a0604;
+  box-shadow: 0 0 20px rgba(224, 112, 58, 0.55);
+}
+
+/* --- 3. Glassmorphic Pressure & Mission Cards --- */
+.challenge-pressure-band {
+  gap: 12px;
+  border: none;
+  margin-top: clamp(40px, 6vw, 75px);
+}
+
+.challenge-pressure {
+  background: linear-gradient(145deg, rgba(18, 25, 38, 0.72) 0%, rgba(10, 15, 23, 0.85) 100%);
+  border: 1px solid rgba(255, 173, 123, 0.16);
+  border-radius: 10px;
+  padding: 22px 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 220ms ease,
+              box-shadow 220ms ease;
+}
+
+.challenge-pressure + .challenge-pressure {
+  border-left: 1px solid rgba(255, 173, 123, 0.16);
+  padding-left: 20px;
+}
+
+.challenge-pressure:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 173, 123, 0.45);
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.7), 0 0 20px rgba(242, 118, 77, 0.2);
+}
+
+.pressure-status {
+  align-self: flex-start;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(111, 211, 165, 0.1);
+  border: 1px solid rgba(111, 211, 165, 0.3);
+  color: #7de8b7;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+}
+
+.challenge-pressure-context .pressure-status {
+  background: rgba(192, 207, 224, 0.08);
+  border-color: rgba(192, 207, 224, 0.2);
+  color: #b5c2d0;
+}
+
+/* --- 4. Survival Systems HUD Polish --- */
+.systems-register {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.system-entry {
+  background: linear-gradient(145deg, rgba(18, 26, 39, 0.75) 0%, rgba(10, 15, 24, 0.88) 100%);
+  border: 1px solid rgba(255, 173, 123, 0.16);
+  border-radius: 10px;
+  padding: 18px 22px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.system-entry:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 173, 123, 0.45);
+  box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.7), 0 0 18px rgba(242, 118, 77, 0.2);
+}
+
+.system-readout {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: rgba(242, 118, 77, 0.1);
+  border: 1px solid rgba(242, 118, 77, 0.3);
+  color: #ffb38b;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.systems-budget {
+  background: linear-gradient(145deg, rgba(22, 32, 48, 0.8) 0%, rgba(11, 16, 26, 0.9) 100%);
+  border: 1px solid rgba(255, 173, 123, 0.28);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* --- 5. Interactive Flight Plan Steps --- */
+.steps-list li {
+  background: linear-gradient(145deg, rgba(18, 26, 38, 0.7) 0%, rgba(10, 15, 23, 0.8) 100%);
+  border: 1px solid rgba(255, 173, 123, 0.15);
+  border-radius: 10px;
+  padding: 22px 24px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  margin-bottom: 12px;
+}
+
+.steps-list li:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 173, 123, 0.45);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65), 0 0 20px rgba(242, 118, 77, 0.2);
+}
+
+.step-number {
+  color: #ff9a5c;
+  font-weight: 700;
+}
+
+/* --- 6. Commander Nova Glow & Wave Dynamics --- */
+.commander-id-card {
+  box-shadow: 0 16px 50px -5px rgba(0, 0, 0, 0.85), 0 0 32px -4px rgba(224, 112, 58, 0.28);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 173, 123, 0.35);
+  background: linear-gradient(145deg, rgba(22, 32, 48, 0.9) 0%, rgba(10, 15, 24, 0.95) 100%);
+  backdrop-filter: blur(12px);
+}
+
+.commander-core {
+  background: radial-gradient(circle, #e0703a 0%, #aa4b20 70%, #5a200b 100%);
+  box-shadow: 0 0 25px rgba(224, 112, 58, 0.6);
+  border: 1px solid rgba(255, 192, 154, 0.5);
+}
+
+.commander-wave i {
+  background: linear-gradient(180deg, #ffb38b 0%, #e0703a 100%);
+  box-shadow: 0 0 8px rgba(224, 112, 58, 0.4);
+}
+
+/* --- 7. Play Mission Terminal Styling --- */
+.game-shell {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 173, 123, 0.35);
+  box-shadow:
+    0 25px 70px -10px rgba(0, 0, 0, 0.95),
+    0 0 45px -5px rgba(224, 112, 58, 0.25);
+  overflow: hidden;
+}
+
+.game-chrome {
+  background: linear-gradient(90deg, #131924 0%, #1c2637 50%, #131924 100%);
+  border-bottom: 1px solid rgba(255, 173, 123, 0.25);
+  padding: 13px 20px;
+}
+
+.chrome-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(111, 211, 165, 0.1);
+  border: 1px solid rgba(111, 211, 165, 0.35);
+  color: #7de8b7;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.chrome-state span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6fd3a5;
+  box-shadow: 0 0 8px #6fd3a5;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.fullscreen-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: rgba(242, 118, 77, 0.12);
+  border: 1px solid rgba(242, 118, 77, 0.38);
+  color: #ffb38b;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.fullscreen-button:hover {
+  background: #e0703a;
+  color: #0d0604;
+  border-color: #e0703a;
+  box-shadow: 0 0 16px rgba(224, 112, 58, 0.55);
+}
+
+/* --- 8. Crew Manifest Polish --- */
+.team-list li {
+  background: linear-gradient(145deg, rgba(18, 25, 38, 0.7) 0%, rgba(10, 15, 23, 0.82) 100%);
+  border: 1px solid rgba(192, 207, 224, 0.12);
+  border-radius: 10px;
+  padding: 18px 22px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.team-list li:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 173, 123, 0.45);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65), 0 0 18px rgba(242, 118, 77, 0.2);
+}
+
+.team-index {
+  color: #ff9a5c;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
 }
