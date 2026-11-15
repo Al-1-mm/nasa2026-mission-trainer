@@ -35,9 +35,10 @@
         <a href="#survival">Survival systems</a>
         <a href="#play">Play</a>
         <a href="#science">Data &amp; science</a>
+        <a href="#commander">AI Commander</a>
         <a href="#team">Team</a>
       </nav>
-      <a class="nav-cta" href="#play">Enter mission <span aria-hidden="true">↗</span></a>
+      <a class="nav-cta" href="#play">Play now <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
@@ -52,14 +53,14 @@
       <div class="hero-content page-width">
         <p class="eyebrow"><span class="eyebrow-dot"></span> INDEPENDENT STUDENT PROJECT <span class="eyebrow-divider">/</span> SPACE APPS CHALLENGE 2026</p>
         <h1 id="hero-title">Mission<br><span>Trainer.</span></h1>
-        <p class="hero-copy">Keep Mars alive, one power decision at a time. Guide a four-person crew through a 14-sol scenario shaped by the project's science sources.</p>
+        <p class="hero-copy">Keep Mars alive, one power decision at a time. Guide a four-person crew through a 14-sol scenario shaped by real NASA data from Curiosity and space biology.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#play">Play Mission <span aria-hidden="true">↗</span></a>
           <a class="text-link" href="#briefing">Explore the mission <span aria-hidden="true">↓</span></a>
         </div>
         <div class="hero-status">
           <span class="status-pulse" aria-hidden="true"></span>
-          <span>GAME BUILD NOT AVAILABLE YET</span>
+          <span>BROWSER SIMULATION LIVE · NO DOWNLOAD</span>
           <span class="status-divider" aria-hidden="true"></span>
           <span>GALE CRATER SCENARIO</span>
         </div>
@@ -254,16 +255,17 @@
     </section>
 
     <section class="science-section section-pad" id="science" aria-labelledby="science-title">
+      <div id="data-science"></div>
       <div class="page-width science-layout">
         <div class="science-intro">
           <div class="section-kicker"><span>07</span><span class="kicker-rule"></span><span>DATA &amp; SCIENCE</span></div>
           <p class="section-overline">TRACEABLE SOURCES</p>
           <h2 id="science-title">Real measurements.<br><em>Made playable.</em></h2>
-          <p class="science-lead">The project connects mission events and learning references to named source material, including Curiosity radiation data, space weather and Mars communications.</p>
-          <p class="science-caveat">The source measurements and descriptions are not presented as direct gameplay units. Game values are simplified for the scenario.</p>
+          <p class="science-lead">The project connects mission events and learning references to verified NASA source material, including Curiosity RAD radiation profiles, solar DONKI data and space biology studies.</p>
+          <p class="science-caveat">Game values are thoughtfully simplified for an engaging junior astronaut experience, while faithfully reflecting real space environmental risks.</p>
           <div class="science-note" id="science-note">
             <span class="note-mark" aria-hidden="true">+</span>
-            <p>Additional science context from the data team will be added here.</p>
+            <p>Curiosity RAD data from Gale Crater (OSDR RadLab) &amp; 5 biological studies from NASA OSDR are integrated into gameplay and debriefs.</p>
           </div>
         </div>
         <div class="sources-column">
@@ -273,13 +275,64 @@
           </div>
         </div>
       </div>
+
+      <div class="page-width science-deep-dive">
+        <div class="science-deep-heading">
+          <h3>How real NASA data changes the game</h3>
+          <p>Every hazard and trade-off in Sol by Sol is grounded in real space science and mission history.</p>
+        </div>
+
+        <div class="science-cards-grid">
+          <div class="science-card">
+            <h4>Gale Crater radiation</h4>
+            <p>NASA's Curiosity rover measured the major solar particle storm of 11–12 Sep 2017 right where our base stands. Daily radiation rose to <b>2.29×</b> and <b>1.65×</b> the quiet level, with a peak hour reaching <b>2.77×</b>.</p>
+          </div>
+          <div class="science-card">
+            <h4>Real space weather (DONKI)</h4>
+            <p>Our server checks recent solar eruptions via NASA's DONKI API. If the Sun is active, solar storms become more likely during your 14-sol mission.</p>
+          </div>
+          <div class="science-card">
+            <h4>Messages are slow</h4>
+            <p>Radio signals take between 4 and 24 minutes to travel between Earth and Mars. A warning from Earth can arrive too late — unless you invest power in the local Weather Station.</p>
+          </div>
+          <div class="science-card">
+            <h4>Dust stops solar power</h4>
+            <p>In 2018, a planet-encircling dust storm cut off sunlight from NASA's solar-powered Opportunity rover. In the game, a dust storm halves your power generation for that sol.</p>
+          </div>
+          <div class="science-card">
+            <h4>Real space biology (OSDR)</h4>
+            <p>After each sol, a "Real Science" card shares an experiment from NASA's Open Science Data Repository: Moon soil plants (OSD-476), ISS lettuce (OSD-268), cosmic ray seeds (OSD-210), mice in orbit (OSD-342), and simulated Mars gravity (OSD-418).</p>
+          </div>
+          <div class="science-card">
+            <h4>Astronaut radiation limits</h4>
+            <p>Real NASA astronauts have career radiation limits defined by NASA-STD-3001. In Sol by Sol, exceeding the safe radiation threshold triggers an emergency mission abort.</p>
+          </div>
+        </div>
+
+        <div class="science-simplifications">
+          <h4>What we simplified for Junior Astronauts (Ages 7–12)</h4>
+          <ul>
+            <li><b>Dose is in game points (0–100), not sieverts.</b> Storm ratios are real; absolute numbers are calibrated so a 14-sol mission is balanced, fair and fun.</li>
+            <li><b>The shield only stops solar storm radiation.</b> Everyday background radiation on Mars is energetic galactic cosmic rays that passive shielding cannot stop. Solar storm particles have lower energy, so the shelter shield blocks them effectively.</li>
+            <li><b>Science requires outside EVA work.</b> During a solar particle storm, outside activity exposes astronauts to extra radiation — mirroring why real astronauts shelter in place.</li>
+            <li><b>Guaranteed learning encounter.</b> Every 14-sol mission experiences the real 2017 storm once, ensuring every student discovers how space weather affects habitats.</li>
+            <li><b>Core systems represent full habitats.</b> Life support, greenhouse, storm shield and research stand for hundreds of life support subsystems.</li>
+            <li><b>AI Commander stays faithful.</b> Google Gemini translates exact telemetry into warm, accessible advice without making up dates or unverified numbers.</li>
+          </ul>
+        </div>
+
+        <div class="science-check-box">
+          <b>Verify it yourself:</b> The script that processes Curiosity RAD data from the NASA OSDR RadLab API is open source in <a href="https://github.com/BeibitAI/nasa2026-mission-trainer/blob/main/data-pipeline/fetch_radlab.py" target="_blank" rel="noopener">data-pipeline/fetch_radlab.py</a>. All game scenario rules are in <a href="https://github.com/BeibitAI/nasa2026-mission-trainer/blob/main/unity/MissionTrainer/Assets/_Project/Resources/Data/scenario_mars.json" target="_blank" rel="noopener">scenario_mars.json</a>.
+        </div>
+      </div>
     </section>
 
     <section class="commander-section section-pad" id="commander" aria-labelledby="commander-title">
+      <div id="ai"></div>
       <div class="page-width commander-layout">
         <div class="commander-graphic" aria-hidden="true">
           <div class="commander-id-card">
-            <div class="commander-card-top"><span>MISSION VOICE / LOCAL CONFIG</span><span>FALLBACK READY</span></div>
+            <div class="commander-card-top"><span>MISSION VOICE / GEMINI AI</span><span>LIVE + OFFLINE READY</span></div>
             <div class="commander-card-body">
               <div class="commander-core"><span>N</span></div>
               <div class="commander-card-name"><span>COMMANDER</span><strong>NOVA</strong></div>
@@ -294,8 +347,8 @@
           <div class="section-kicker"><span>08</span><span class="kicker-rule"></span><span>AI COMMANDER</span></div>
           <p class="section-overline">MEET COMMANDER NOVA</p>
           <h2 id="commander-title">Science, translated<br>into mission guidance.</h2>
-          <p>Commander Nova is the game's mission-guidance voice, designed to explain a briefing or sol result and offer a practical tip. The project contains an API-backed commander service and bundled fallback lines.</p>
-          <p class="commander-disclosure">The checked-in game configuration leaves the API base URL empty. Live Gemini responses are not confirmed for this build; bundled local fallback text is the configured path. AI tools also assisted with project code and documentation; the team's final disclosure can be added here.</p>
+          <p>Commander Nova is the game's mission-guidance voice, designed to explain a briefing or sol result and offer a practical tip for kids aged 7–12. In the game, a FastAPI service on Render running Google Gemini turns current telemetry and NASA data into short, encouraging advice in English and Russian.</p>
+          <p class="commander-disclosure"><b>Use of AI (Super Intelligence) Disclosure:</b> In-game Gemini responses are strictly constrained to the game's actual telemetry and NASA facts — it is instructed never to invent dates, data or statistics. If the backend is offline, rich pre-written fallbacks are used seamlessly. No personal data is collected or sent. AI tools (Claude) also assisted the team with code design and documentation.</p>
         </div>
       </div>
     </section>
@@ -317,12 +370,12 @@
             <p class="play-intro">Take command of a four-person crew at Gale Crater. Balance a limited power budget, respond to changing sol conditions and work toward the scenario's science goal.</p>
             <div class="play-hero-actions">
               <a class="play-launch-link" href="#mission-console">Go to launch console <span aria-hidden="true">↓</span></a>
-              <span class="play-device-note">DESKTOP BUILD COMPATIBILITY NOT YET VERIFIED</span>
+              <span class="play-device-note">DESKTOP &amp; MOBILE BROWSER COMPATIBLE</span>
             </div>
           </div>
           <div class="play-hero-status" role="status">
             <span class="status-pulse" aria-hidden="true"></span>
-            <span><b>BUILD STATUS</b> Unity WebGL build in preparation</span>
+            <span><b>MISSION STATUS</b> Sol by Sol Game Live · HTML/JS + 3D</span>
           </div>
           <div class="play-hero-coordinate" aria-hidden="true">MARS <i>/</i> GALE CRATER <i>/</i> SCENARIO 01</div>
         </div>
@@ -337,18 +390,18 @@
         <div class="page-width play-console-wrap" id="mission-console">
           <div class="play-console-heading">
             <div>
-              <p class="play-micro-label">MISSION INTERFACE <span>/</span> UNITY WEBGL</p>
+              <p class="play-micro-label">MISSION INTERFACE <span>/</span> BROWSER 3D</p>
               <h3>Launch console</h3>
             </div>
-            <span class="console-build-tag"><i></i> BUILD PENDING</span>
+            <span class="console-build-tag"><i></i> READY TO PLAY</span>
           </div>
           <div class="game-shell">
             <div class="game-chrome">
-              <div class="chrome-brand"><span class="chrome-mark" aria-hidden="true"></span><span>MISSION TRAINER <i>/</i> LAUNCH CONSOLE</span></div>
-              <span class="chrome-state"><span></span> WEBGL NOT AVAILABLE</span>
+              <div class="chrome-brand"><span class="chrome-mark" aria-hidden="true"></span><span>SOL BY SOL <i>/</i> MARS BASE TRAINER</span></div>
+              <span class="chrome-state"><span></span> SIMULATION ACTIVE</span>
             </div>
             <div class="game-frame">
-              <iframe id="mission-frame" src="play/index.html" title="Mission Trainer game status" allow="fullscreen; autoplay" loading="lazy"></iframe>
+              <iframe id="mission-frame" src="play/index.html" title="Sol by Sol: Mars Base Trainer game" allow="fullscreen; autoplay" loading="lazy"></iframe>
               <div class="frame-overlay" aria-hidden="true">
                 <span class="frame-corner frame-corner-tl"></span>
                 <span class="frame-corner frame-corner-tr"></span>
@@ -357,11 +410,11 @@
               </div>
             </div>
             <div class="game-toolbar">
-              <p><span class="toolbar-indicator"></span>The game build is not available yet. The embedded page is a status placeholder, not a playable simulation.</p>
-              <button class="fullscreen-button" id="fullscreen-button" type="button" disabled hidden>Enter fullscreen <span aria-hidden="true">⛶</span></button>
+              <p><span class="toolbar-indicator"></span>The interactive mission simulation is running live in the console above. Balance power, manage life support and face real NASA radiation data.</p>
+              <button class="fullscreen-button" id="fullscreen-button" type="button">Enter fullscreen <span aria-hidden="true">⛶</span></button>
             </div>
           </div>
-          <p class="mobile-note">The WebGL build has not been verified on mobile devices. The game will appear here when the build is published.</p>
+          <p class="mobile-note">Playing on a phone or want full screen? <a href="play/index.html" target="_blank" rel="noopener">Open Sol by Sol on its own page ↗</a></p>
         </div>
 
         <div class="page-width play-briefing">
@@ -468,12 +521,12 @@
           <p>A collaborative project built for the NASA Space Apps Challenge.</p>
         </div>
         <ul class="team-list">
-          <li><span class="team-index">01</span><span class="team-name">Arystan</span><span class="team-role">Game development</span></li>
-          <li><span class="team-index">02</span><span class="team-name">Omar</span><span class="team-role">Unity systems &amp; networking</span></li>
-          <li><span class="team-index">03</span><span class="team-name">Bexultan</span><span class="team-role">3D art</span></li>
-          <li><span class="team-index">04</span><span class="team-name">Muhammad</span><span class="team-role">Website &amp; deployment</span></li>
-          <li><span class="team-index">05</span><span class="team-name">Adlet</span><span class="team-role">Backend &amp; science data</span></li>
-          <li><span class="team-index">06</span><span class="team-name">Daria</span><span class="team-role">Game writing &amp; demo</span></li>
+          <li><span class="team-index">01</span><span class="team-name">Adlet</span><span class="team-role">Captain, game logic, backend, AI and data</span></li>
+          <li><span class="team-index">02</span><span class="team-name">Arystan</span><span class="team-role">Lead engineer, gameplay systems</span></li>
+          <li><span class="team-index">03</span><span class="team-name">Omar</span><span class="team-role">Data pipeline, testing, gameplay recording</span></li>
+          <li><span class="team-index">04</span><span class="team-name">Bexultan</span><span class="team-role">3D artist, habitat &amp; module models</span></li>
+          <li><span class="team-index">05</span><span class="team-name">Muhammad</span><span class="team-role">Website &amp; deployment, UI design</span></li>
+          <li><span class="team-index">06</span><span class="team-name">Daria</span><span class="team-role">Game writing, demo &amp; presentation</span></li>
         </ul>
       </div>
     </section>

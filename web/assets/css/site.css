@@ -5336,3 +5336,110 @@ a.source-row:hover .source-arrow {
     font-size: 12px;
   }
 }
+
+/* --- Data & Science Deep Dive (Integrated from Main) --- */
+.science-deep-dive {
+  margin-top: clamp(40px, 6vw, 70px);
+  padding-top: clamp(30px, 5vw, 50px);
+  border-top: 1px solid var(--line-strong);
+}
+
+.science-deep-heading h3 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 500;
+  margin: 0 0 10px;
+  color: var(--text-primary);
+}
+
+.science-deep-heading p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  max-width: 680px;
+  margin: 0 0 28px;
+}
+
+.science-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.science-card {
+  background: rgba(16, 24, 34, 0.75);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.science-card:hover {
+  border-color: rgba(242, 118, 77, 0.5);
+}
+
+.science-card h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e9edf1;
+}
+
+.science-card p {
+  margin: 0;
+  color: #9cabbc;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.science-simplifications {
+  background: rgba(14, 20, 28, 0.85);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.science-simplifications h4 {
+  font-size: 18px;
+  margin: 0 0 16px;
+  color: #ff9a5c;
+  font-weight: 600;
+}
+
+.science-simplifications ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #9cabbc;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.science-simplifications li {
+  margin-bottom: 8px;
+}
+
+.science-simplifications li b {
+  color: #e9edf1;
+}
+
+.science-check-box {
+  border-left: 2px solid var(--mars-orange);
+  padding: 14px 20px;
+  background: rgba(242, 118, 77, 0.05);
+  color: #d7dce3;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.science-check-box a {
+  color: var(--mars-light);
+  text-decoration: underline;
+}
+
+.science-check-box a:hover {
+  color: #ffb38b;
+}

@@ -38,6 +38,7 @@ const sourceCount = document.querySelector("#sources-count");
 
 const sourceConnections = new Map([
   ["radlab_msl", "Used by the solar-particle-storm event profile in the game scenario."],
+  ["osdr", "Real science cards in mission debriefs connect to 5 real NASA space biology studies in the Open Science Data Repository (plants in Moon soil, lettuce on ISS, cosmic ray seed resilience, mice in orbit, Mars gravity)."],
   ["donki", "Space-weather risk from the bundled snapshot or configured service informs the solar-storm event chance."],
   ["comms_delay", "Provides context for the communication-delay learning scenario and Weather Station warning decision."],
   ["opportunity_2018", "Referenced by the dust-storm event, which halves available scenario solar power."],
@@ -133,22 +134,18 @@ const gameShell = document.querySelector(".game-shell");
 const fullscreenButton = document.querySelector("#fullscreen-button");
 
 if (missionFrame && gameShell && fullscreenButton) {
-  missionFrame.addEventListener("load", () => {
-    const frameDocument = missionFrame.contentDocument;
-    const hasWebGlCanvas = Boolean(frameDocument?.querySelector("canvas"));
-    if (!hasWebGlCanvas || typeof gameShell.requestFullscreen !== "function") return;
-
-    fullscreenButton.hidden = false;
-    fullscreenButton.disabled = false;
-    missionFrame.title = "Mission Trainer Unity WebGL game";
-  });
+  fullscreenButton.hidden = false;
+  fullscreenButton.disabled = false;
 
   fullscreenButton.addEventListener("click", async () => {
-    if (fullscreenButton.disabled) return;
     try {
-      await gameShell.requestFullscreen();
+      if (!document.fullscreenElement) {
+        await gameShell.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
     } catch (error) {
-      console.error("Could not enter fullscreen mode.", error);
+      console.error("Could not toggle fullscreen mode.", error);
     }
   });
 }

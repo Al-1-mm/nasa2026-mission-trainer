@@ -165,7 +165,8 @@ namespace MissionTrainer
         public int sols;
         public int powerPerSol;
         public int crew;
-        public float baseDosePerSol;        // game units per sol at normal background
+        public float baseDosePerSol;        // game units per sol at normal background (cosmic rays; the shield can't stop it)
+        public float outsideDosePerScienceUnit; // science = work outside; extra dose per unit, multiplied by storm strength
         public float doseLimit;
         public int commsDelaySols;          // Mars: storm warnings from Earth arrive late
         public int weatherStationPowerCost = 1; // local storm warning costs power every sol it is on
@@ -270,6 +271,26 @@ namespace MissionTrainer
     public class SourceList
     {
         public List<SourceEntry> sources = new List<SourceEntry>();
+    }
+
+    // ---------- Bundled config: Resources/Data/facts.json ("Real science" cards from NASA OSDR) ----------
+
+    [Serializable]
+    public class FactCard
+    {
+        public string id;
+        public string topic;      // greenhouse | radiation | body
+        public string title;
+        public string text;       // simple English, kids 7-12
+        public string studyId;    // e.g. OSD-476
+        public string url;        // OSDR study page
+        public string sourceId;   // key into sources.json
+    }
+
+    [Serializable]
+    public class FactList
+    {
+        public List<FactCard> facts = new List<FactCard>();
     }
 
     [Serializable]
